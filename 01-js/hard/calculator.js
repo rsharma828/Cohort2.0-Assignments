@@ -16,6 +16,50 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+
+  add(num){
+    this.result += num;
+  }
+
+  subtract(num){
+    this.result += num;
+  }
+
+  multiply(num){
+    this.result *= num;
+  }
+
+  divide(num){
+    if(num == 0){
+      throw new Error();
+    }
+    this.result /= num;
+  }
+
+  clear(){
+    this.result = 0;
+  }
+
+  getResult(){
+    return this.result;
+  }
+  calculate(expression){
+    // Evaluate the expression after trimming any leading or trailing whitespace
+  this.result = eval(expression.trim());
+  
+  // Check if the result is not a finite number
+  if (!Number.isFinite(this.result)) {
+    // If the result is not a finite number, throw an error
+    throw new Error();
+  }
+  }
+}
+
+
 
 module.exports = Calculator;
+
