@@ -6,19 +6,41 @@
  */
 
 function wait1(t) {
+    return new Promise((res,rej) => {
+        setTimeout(() => {
+            res("promise resolved");
+        }, t*1000); // Convert seconds to milliseconds
+    })
 
 }
 
 function wait2(t) {
+    return new Promise((res,rej) => {
+        setTimeout(() => {
+            res("promise resolved");
+        }, t*1000); // Convert seconds to milliseconds
+    })
 
 }
 
 function wait3(t) {
+    return new Promise((res,rej) => {
+        setTimeout(() => {
+            res("promise resolved");
+        }, t*1000); // Convert seconds to milliseconds
+    })
 
 }
 
-function calculateTime(t1, t2, t3) {
-
+async function calculateTime(t1, t2, t3) {
+    const currentDate = Date.now();
+         await wait1(t1);
+        await wait2(t2);
+        await wait3(t3);
+      const endTime = Date.now();
+    const timeTaken  = endTime  - currentDate;
+    
+    return timeTaken;
 }
 
 module.exports = calculateTime;
